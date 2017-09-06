@@ -14,31 +14,50 @@ class Card
     Card.new(rand(10), :spades)
   end
 end
+  def output
+      @cards.each do |card|
+      card.output_card
+    end
+end
+
 
   class Deck
+
     def initialize
+      @deck = []
+      @ranks = ["Ace", 2,3,4,5,6,7,8,9,10, "Jack", "Queen", "King"]
+      @suits = [:spades, :hearts, :diamonds, :clubs]
       
+      @suits.each do |suit|
+        @ranks.each do |rank|
+        @deck << Card.new(rank,suit)
     end
-
-    def shuffle
-      @cards.shuffle!
-    end
-
-    def deal
-      @cards.shift
-    end
-
-    def output
-      @cards.each do |card|
-        card.output_card
-    end
-
-    
-
   end
 end
 
+
+    def shuffle
+      @deck.shuffle!
+    end
+
+    def deal
+      @deck.shift
+    end
+
+    def output_deck
+      @deck.each do |card|
+        card.output_card
+      end
+    end
+  end
+
+    
 deck = Deck.new
+
 deck.shuffle
 deck.deal
-deck.output
+deck.output_deck
+    
+
+
+
