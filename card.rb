@@ -41,7 +41,7 @@ end
     end
 
     def deal
-      @deck.shift
+      return @deck.shift
     end
 
     def output_deck
